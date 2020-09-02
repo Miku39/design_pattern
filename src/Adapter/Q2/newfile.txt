@@ -1,0 +1,5 @@
+#written by FileProperties
+#Wed Sep 02 20:17:29 JST 2020
+month=4
+year=2004
+day=21
