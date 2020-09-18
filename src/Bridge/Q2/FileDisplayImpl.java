@@ -1,22 +1,22 @@
 import java.io.*;
 
 public class FileDisplayImpl extends DisplayImpl {
-    private String filename;
+    private String fileName;
     private BufferedReader reader;
     private final int MAX_READAHEAD_LIMIT = 4096; // 繰り返し表示させられる上限（バッファサイズ）
 
-    public FileDisplayImpl(String filename) {
-        this.filename = filename;
+    public FileDisplayImpl(String fileName) {
+        this.fileName = fileName;
     }
 
     public void rawOpen() {
         try {
-            reader = new BufferedReader(new FileReader(filename));
+            reader = new BufferedReader(new FileReader(fileName));
             reader.mark(MAX_READAHEAD_LIMIT);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("=-=-=-=-=-= " + filename + " =-=-=-=-=-="); // 飾り枠
+        System.out.println("=-=-=-=-=-= " + fileName + " =-=-=-=-=-="); // 飾り枠
     }
 
     public void rawPrint() {
