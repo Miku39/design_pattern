@@ -6,22 +6,8 @@ public class Main {
         b1.show();
         b2.show();
         b3.show();
-        Display b4 = 
-                    new FullBorder(
-                        new UpDownBorder(
-                            new SideBorder(
-                                new UpDownBorder(
-                                    new SideBorder(
-                                        new StringDisplay("Ç±ÇÒÇ…ÇøÇÕÅB"),
-                                        '*'
-                                    ),
-                                    '='
-                                ),
-                                '|'
-                            ),
-                            '/'
-                        )
-                    );
+        Display b4 = new FullBorder(new UpDownBorder(
+                new SideBorder(new UpDownBorder(new SideBorder(new StringDisplay("„Åì„Çì„Å´„Å°„ÅØ„ÄÇ"), '*'), '='), '|'), '/'));
         b4.show();
     }
 }
