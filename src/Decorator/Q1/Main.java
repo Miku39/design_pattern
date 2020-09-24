@@ -7,7 +7,7 @@ public class Main {
         b2.show();
         b3.show();
         Display b4 = new FullBorder(new UpDownBorder(
-                new SideBorder(new UpDownBorder(new SideBorder(new StringDisplay("こんにちは。"), '*'), '='), '|'), '/'));
+                new SideBorder(new UpDownBorder(new SideBorder(new StringDisplay("aiueo"), '*'), '='), '|'), '/'));
         b4.show();
     }
 }

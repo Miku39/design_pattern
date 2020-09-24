@@ -15,13 +15,18 @@ public class UpDownBorder extends Border {
     }
 
     public String getRowText(int row) {
-        // TODO: 編集
-        // if (row == 0) {
-        // return "+" + makeLine('-', display.getColumns()) + "+";
-        // } else if (row == display.getRows() + 1) { // 下端の枠
-        // return "+" + makeLine('-', display.getColumns()) + "+";
-        // } else {
-        // return display.getRowText(row - 1);
-        // }
+        if (row == 0 || row == display.getRows() + 1) {
+            return makeLine(this.borderChar, this.getColumns());
+        } else {
+            return display.getRowText(row - 1);
+        }
+    }
+
+    private String makeLine(char ch, int count) { // 文字chをcount個連続させた文字列を作る
+        StringBuffer buf = new StringBuffer();
+        for (int i = 0; i < count; i++) {
+            buf.append(ch);
+        }
+        return buf.toString();
     }
 }
