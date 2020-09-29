@@ -24,11 +24,11 @@ public class Directory extends Entry {
         return this;
     }
 
-    public Iterator iterator() {
+    public Iterator iterator() { // Iteratorの生成
         return dir.iterator();
     }
 
-    public void accept(Visitor v) {
+    public void accept(Visitor v) { // 訪問者の受け入れ
         v.visit(this);
     }
 }
