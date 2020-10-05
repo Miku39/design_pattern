@@ -5,16 +5,20 @@ import java.awt.event.ItemEvent;
 
 public class ColleagueCheckbox extends Checkbox implements ItemListener, Colleague {
     private Mediator mediator;
-    public ColleagueCheckbox(String caption, CheckboxGroup group, boolean state) {  // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+
+    public ColleagueCheckbox(String caption, CheckboxGroup group, boolean state) { // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
         super(caption, group, state);
     }
-    public void setMediator(Mediator mediator) {            // Mediator‚ğ•Û
+
+    public void setMediator(Mediator mediator) { // Mediatorã‚’ä¿æŒ
         this.mediator = mediator;
     }
-    public void setColleagueEnabled(boolean enabled) {      // Mediator‚©‚ç—LŒø/–³Œø‚ªw¦‚³‚ê‚é
+
+    public void setColleagueEnabled(boolean enabled) { // Mediatorã‹ã‚‰æœ‰åŠ¹/ç„¡åŠ¹ãŒæŒ‡ç¤ºã•ã‚Œã‚‹
         setEnabled(enabled);
     }
-    public void itemStateChanged(ItemEvent e) {             // ó‘Ô‚ª•Ï‰»‚µ‚½‚çMediator‚É’Ê’m
+
+    public void itemStateChanged(ItemEvent e) { // çŠ¶æ…‹ãŒå¤‰åŒ–ã—ãŸã‚‰Mediatorã«é€šçŸ¥
         mediator.colleagueChanged();
     }
 }

@@ -5,17 +5,21 @@ import java.awt.event.TextEvent;
 
 public class ColleagueTextField extends TextField implements TextListener, Colleague {
     private Mediator mediator;
-    public ColleagueTextField(String text, int columns) {   // コンストラクタ
+
+    public ColleagueTextField(String text, int columns) { // ???????
         super(text, columns);
     }
-    public void setMediator(Mediator mediator) {            // Mediatorを保持
+
+    public void setMediator(Mediator mediator) { // Mediator???
         this.mediator = mediator;
     }
-    public void setColleagueEnabled(boolean enabled) {      // Mediatorから有効/無効が指示される
+
+    public void setColleagueEnabled(boolean enabled) { // Mediator????/????????
         setEnabled(enabled);
         setBackground(enabled ? Color.white : Color.lightGray);
     }
-    public void textValueChanged(TextEvent e) {             // 文字列が変化したらMediatorに通知
+
+    public void textValueChanged(TextEvent e) { // ?????????Mediator???
         mediator.colleagueChanged();
     }
 }
