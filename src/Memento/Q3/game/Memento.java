@@ -6,6 +6,12 @@ public class Memento {
     int money; // 所持金
     ArrayList fruits; // フルーツ
 
+    private int number;
+
+    int getNumber() {
+        return number;
+    }
+
     public int getMoney() { // 所持金を得る(narrow interface)
         return money;
     }
