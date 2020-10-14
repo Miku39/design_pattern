@@ -1,6 +1,7 @@
 import game.Memento;
 import game.Gamer;
 import java.io.*;
+import java.util.zip.*;
 
 public class Main {
     public static final String SAVEFILENAME = "game.dat";
@@ -43,7 +44,8 @@ public class Main {
 
     public static void saveMemento(Memento memento) {
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(SAVEFILENAME));
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new DeflaterOutputStream(new FileOutputStream(SAVEFILENAME)));
 
             out.writeObject(memento);
 
@@ -56,11 +58,13 @@ public class Main {
     public static Memento loadMemento() {
         Memento memento = null;
         try {
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream(SAVEFILENAME));
+            ObjectInputStream in = new ObjectInputStream(new InflaterInputStream(new FileInputStream(SAVEFILENAME)));
 
             memento = (Memento) in.readObject();
 
             in.close();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
