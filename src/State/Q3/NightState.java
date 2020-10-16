@@ -9,7 +9,9 @@ public class NightState implements State {
     }
 
     public void doClock(Context context, int hour) { // 時刻設定
-        if (9 <= hour && hour < 17) {
+        if (12 <= hour && hour < 13) {
+            context.changeState(NoonState.getInstance());
+        } else if (9 <= hour && hour < 17) {
             context.changeState(DayState.getInstance());
         }
     }
