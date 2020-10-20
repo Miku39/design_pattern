@@ -1,7 +1,10 @@
 public class PrinterProxy implements Printable {
     private String name; // 名前
     private Printable real; // 「本人」
-    private String className; // 「本人」のクラス名
+    private String className;
+
+    public PrinterProxy() {
+    }
 
     public PrinterProxy(String name, String className) { // コンストラクタ
         this.name = name;

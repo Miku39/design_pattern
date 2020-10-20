@@ -1,25 +1,31 @@
 public class PrinterProxy implements Printable {
-    private String name;            // –¼‘O
-    private Printer real;           // u–{lv
+    private String name; // åå‰
+    private Printer real; // ã€Œæœ¬äººã€
+
     public PrinterProxy() {
     }
-    public PrinterProxy(String name) {      // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+
+    public PrinterProxy(String name) { // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
         this.name = name;
     }
-    public synchronized void setPrinterName(String name) {  // –¼‘O‚Ìİ’è
+
+    public synchronized void setPrinterName(String name) { // åå‰ã®è¨­å®š
         if (real != null) {
-            real.setPrinterName(name);  // u–{lv‚É‚àİ’è‚·‚é
+            real.setPrinterName(name); // ã€Œæœ¬äººã€ã«ã‚‚è¨­å®šã™ã‚‹
         }
         this.name = name;
     }
-    public String getPrinterName() {    // –¼‘O‚Ìæ“¾
+
+    public String getPrinterName() { // åå‰ã®å–å¾—
         return name;
     }
-    public void print(String string) {  // •\¦
+
+    public void print(String string) { // è¡¨ç¤º
         realize();
         real.print(string);
     }
-    private synchronized void realize() {   // u–{lv‚ğ¶¬
+
+    private synchronized void realize() { // ã€Œæœ¬äººã€ã‚’ç”Ÿæˆ
         if (real == null) {
             real = new Printer(name);
         }
