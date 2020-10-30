@@ -13,6 +13,13 @@ public class Main extends JFrame implements ActionListener, MouseMotionListener,
     // 消去ボタン
     private JButton clearButton = new JButton("clear");
 
+    // 赤ボタン
+    private JButton redButton = new JButton("red");
+    // 緑ボタン
+    private JButton greenButton = new JButton("green");
+    // 青ボタン
+    private JButton blueButton = new JButton("blue");
+
     // コンストラクタ
     public Main(String title) {
         super(title);
@@ -20,9 +27,15 @@ public class Main extends JFrame implements ActionListener, MouseMotionListener,
         this.addWindowListener(this);
         canvas.addMouseMotionListener(this);
         clearButton.addActionListener(this);
+        redButton.addActionListener(this);
+        greenButton.addActionListener(this);
+        blueButton.addActionListener(this);
 
         Box buttonBox = new Box(BoxLayout.X_AXIS);
         buttonBox.add(clearButton);
+        buttonBox.add(redButton);
+        buttonBox.add(greenButton);
+        buttonBox.add(blueButton);
         Box mainBox = new Box(BoxLayout.Y_AXIS);
         mainBox.add(buttonBox);
         mainBox.add(canvas);
@@ -37,6 +50,18 @@ public class Main extends JFrame implements ActionListener, MouseMotionListener,
         if (e.getSource() == clearButton) {
             history.clear();
             canvas.repaint();
+        } else if (e.getSource() == redButton) {
+            Command cmd = new ColorCommand(canvas, Color.red);
+            history.append(cmd);
+            cmd.execute();
+        } else if (e.getSource() == greenButton) {
+            Command cmd = new ColorCommand(canvas, Color.green);
+            history.append(cmd);
+            cmd.execute();
+        } else if (e.getSource() == blueButton) {
+            Command cmd = new ColorCommand(canvas, Color.blue);
+            history.append(cmd);
+            cmd.execute();
         }
     }
 
