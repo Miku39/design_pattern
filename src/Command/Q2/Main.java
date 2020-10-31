@@ -12,7 +12,8 @@ public class Main extends JFrame implements ActionListener, MouseMotionListener,
     private DrawCanvas canvas = new DrawCanvas(400, 400, history);
     // 消去ボタン
     private JButton clearButton = new JButton("clear");
-    // アンドゥボタン
+
+    // undo
     private JButton undoButton = new JButton("undo");
 
     // コンストラクタ
